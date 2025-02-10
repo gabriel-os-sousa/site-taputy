@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pattaya&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', serif;
+    line-height: 1.6;
+}
+
+/* Header fixo */
+header {
+    background-color: #a10505;
+    color: #fff;
+    padding: 0 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    max-height: 80px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    max-height: 80px;
+}
+
+.logo img {
+    height: 80px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Pattaya', serif;
+    transition: color 0.3s ease;
+    /* Transição suave para a cor do texto */
+}
+
+/* Efeito ao passar o mouse */
+.nav-links a:hover {
+    color: #eb9816;
+    /* Cor do texto ao passar o mouse */
+}
+
+.nav-links a.active {
+    color: #eb9816;
+    /* Cor do texto quando a seção está ativa */
+}
+
+/* Menu toggle para mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+/* Seções */
+.section {
+    padding: 60px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    scroll-margin-top: 60px;
+    /* Ajusta o scroll para considerar o header fixo */
+}
+
+#inicio {
+    background-color: #f4f4f4;
+    justify-content: center;
+}
+
+#produtos {
+    background-color: #e2e2e2;
+}
+
+#pedidos {
+    background-color: #d1d1d1;
+    justify-content: center;
+}
+
+#contato {
+    background-color: #c0c0c0;
+}
+
+/* Filtros */
+.filters {
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    font-family: 'Montserrat', serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.filter-button.active {
+    /* background-color: #a10505; */
+    background-color: #eb9816;
+    color: white;
+}
+
+/* Container de produtos */
+.produtos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px 0px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Itens de produtos */
+.produto-item {
+    flex: 1 1 calc(25% - 20px);
+    /* 4 itens por linha no desktop (25% - gap) */
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 25%;
+    /* Garante que o item não ultrapasse 25% da largura */
+}
+
+.produto-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+.produto-item h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+}
+
+.produto-item p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.pedidos-icon-link {
+    display: inline-block;
+    /* Para os ícones ficarem um ao lado do outro */
+    margin: 10px;
+    /* Espaçamento entre os ícones */
+    text-decoration: none;
+    /* Remove o sublinhado dos links */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    overflow: hidden;
+    /* Garante que a imagem não ultrapasse a borda */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Efeito de transição */
+}
+
+.pedidos-icon-link:hover {
+    transform: translateY(-5px);
+    /* Efeito de flutuar */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    /* Sombra ao flutuar */
+}
+
+.pedidos-icon {
+    width: 300px;
+    /* Tamanho do ícone */
+    height: 250px;
+    /* Tamanho do ícone */
+    background-size: cover;
+    /* Ajusta a imagem ao tamanho do ícone */
+    background-position: center;
+    /* Centraliza a imagem */
+}
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+    nav {
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #750404;
+        position: absolute;
+        top: 80px;
+        /* Ajuste conforme a altura do header */
+        left: 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .produto-item {
+        flex: 1 1 calc(50% - 20px);
+        /* 2 itens por linha no mobile (50% - gap) */
+        max-width: 50%;
+        /* Garante que o item não ultrapasse 50% da largura */
+    }
+
+    .pedidos-icon-link {
+        display: block;
+        /* Um ícone abaixo do outro */
+        margin: 10px auto;
+        /* Centraliza os ícones */
+    }
+
+    .mapa {
+        width: 100%;
+    }
+}
